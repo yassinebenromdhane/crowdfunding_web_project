@@ -16,13 +16,18 @@
 						<div class="card mb-0">
 							<div class="card-body">
 								<div class="text-center mb-3">
+									
 									<div class="d-inline-flex align-items-center justify-content-center mb-4 mt-2">
 										<img src="global/assets/images/logo_icon.svg" class="h-48px" alt="">
 									</div>
 									<h5 class="mb-0">Login to your account</h5>
 									<span class="d-block text-muted">Enter your credentials below</span>
 								</div>
-
+								<div class="alert alert-success alert-dismissible text-truncate rounded-pill fade show text-center">
+										<i class="ph-check me-2"></i>
+										<span class="fw-semibold">You  are succefully registered !</span> <br/><strong>Please Login to your account</strong>
+										<button type="button" class="btn-close rounded-pill" data-bs-dismiss="alert"></button>
+								    </div>
 								<div class="mb-3">
 									<label class="form-label">Username</label>
 									<div class="form-control-feedback form-control-feedback-start">
@@ -55,24 +60,12 @@
 								<div class="mb-3">
 									<button type="submit" class="btn btn-primary w-100">Sign in</button>
 								</div>
-
-								<div class="text-center text-muted content-divider mb-3">
-									<span class="px-2">or sign in with</span>
-								</div>
-
-								<div class="text-center mb-3">
-									<button type="button" class="btn btn-outline-primary btn-icon rounded-pill border-width-2"><i class="ph-facebook-logo"></i></button>
-									<button type="button" class="btn btn-outline-pink btn-icon rounded-pill border-width-2 ms-2"><i class="ph-dribbble-logo"></i></button>
-									<button type="button" class="btn btn-outline-secondary btn-icon rounded-pill border-width-2 ms-2"><i class="ph-github-logo"></i></button>
-									<button type="button" class="btn btn-outline-info btn-icon rounded-pill border-width-2 ms-2"><i class="ph-twitter-logo"></i></button>
-								</div>
-
 								<div class="text-center text-muted content-divider mb-3">
 									<span class="px-2">Don't have an account?</span>
 								</div>
 
 								<div class="mb-3">
-									<a href="#" class="btn btn-light w-100">Sign up</a>
+									<a href="./sign-up.php" class="btn btn-light w-100">Sign up</a>
 								</div>
 
 								<span class="form-text text-center text-muted">By continuing, you're confirming that you've read our <a href="#">Terms &amp; Conditions</a> and <a href="#">Cookie Policy</a></span>

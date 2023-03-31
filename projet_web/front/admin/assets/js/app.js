@@ -5,8 +5,6 @@
  *  Includes minimum required JS code for proper template functioning
  *
  * ---------------------------------------------------------------------------- */
-
-
 // Setup module
 // ------------------------------
 
