@@ -1,7 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <?php
-include('../../includes/admin/head-dashboard.php')
+include('../../includes/admin/head-dashboard.php');
+$path = $_SERVER["DOCUMENT_ROOT"] . "/projet_web/config/connect_db.php";
+include($path);
+$id = $_GET['id'];
+$req = $bdd->query("SELECT * FROM categories where id=$id");
+
 ?>
 
 <body>
@@ -45,7 +50,7 @@ include('../../includes/admin/head-dashboard.php')
                             <div class="breadcrumb py-2">
                                 <a href="index.html" class="breadcrumb-item"><i class="ph-house"></i></a>
                                 <a href="#" class="breadcrumb-item">Home</a>
-                                <span class="breadcrumb-item active">Add categorie</span>
+                                <span class="breadcrumb-item active">Edit categorie</span>
                             </div>
 
                             <a href="#breadcrumb_elements" class="btn btn-light align-self-center collapsed d-lg-none border-transparent rounded-pill p-0 ms-auto" data-bs-toggle="collapse">
@@ -63,7 +68,7 @@ include('../../includes/admin/head-dashboard.php')
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card card-body">
-                                <h6 class="fw-semibold">Add Categorie</h6>
+                                <h6 class="fw-semibold">Edit Categorie</h6>
                                 <hr>
                                 <div class="d-lg-flex">
                                     <ul class="nav nav-tabs nav-tabs-vertical nav-tabs-vertical-start wmin-lg-200 me-lg-3 mb-3 mb-lg-0" role="tablist">
@@ -73,47 +78,53 @@ include('../../includes/admin/head-dashboard.php')
                                                 Active
                                             </a>
                                         </li>
-                                       
-                                         
+
+
                                     </ul>
 
                                     <div class="tab-content flex-lg-fill">
                                         <div class="tab-pane fade active show" id="vertical-left-tab1" role="tabpanel">
-                                            <form action="../../controllers//admin/addCateg.php" method="POST" data-select2-id="45">
-                                                <div class="row mb-3">
-                                                    <label class="col-lg-3 col-form-label">Name:</label>
-                                                    <div class="col-lg-9">
-                                                        <input type="text" name="name" class="form-control" placeholder="Categorie Name">
-                                                    </div>
-                                                </div>
-
-                                                <div class="row mb-3">
-                                                    <label class="col-lg-3 col-form-label">Description:</label>
-                                                    <div class="col-lg-9">
-                                                        <input type="text" name="desc" class="form-control" placeholder="Categorie Description">
-                                                    </div>
-                                                </div>
-
-
-                                                <div class="row mb-3">
-                                                    <label class="col-lg-3 col-form-label">Active:</label>
-                                                    <div class="col-lg-9">
-                                                        <div class="form-check-horizontal">
-                                                            <label class="form-check form-check-inline">
-                                                                <input type="checkbox" name="actif" class="form-check-input" name="gender" checked="">
-                                                            </label>
-
-                                                          
+                                            <form action="../../controllers//admin/editCateg.php?id=<?= $id ?>" method="POST" data-select2-id="45">
+                                                <?php while ($data = $req->fetch()) { ?>
+                                                    <div class="row mb-3">
+                                                        <label class="col-lg-3 col-form-label">Name:</label>
+                                                        <div class="col-lg-9">
+                                                            <input type="text" name="name" class="form-control" value="<?= $data['name'] ?>">
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="text-end">
-                                                    <button type="submit" name="btn" class="btn btn-success">Save <i class="ph-paper-plane-tilt ms-2"></i></button>
-                                                </div>
+
+                                                    <div class="row mb-3">
+                                                        <label class="col-lg-3 col-form-label">Description:</label>
+                                                        <div class="col-lg-9">
+                                                            <input type="text" name="desc" class="form-control" value="<?= $data['description'] ?>">
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="row mb-3">
+                                                        <label class="col-lg-3 col-form-label">Active:</label>
+                                                        <div class="col-lg-9">
+                                                            <div class="form-check-horizontal">
+                                                                <label class="form-check form-check-inline">
+                                                                    <?php if ($data['actif'] == 0) { ?>
+                                                                        <input type="checkbox" name="actif" class="form-check-input">
+                                                                    <?php } else { ?>
+                                                                        <input type="checkbox" name="actif" class="form-check-input" checked="">
+                                                                    <?php } ?>
+                                                                </label>
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="text-end">
+                                                        <button type="submit" name="btn" class="btn btn-success">Save <i class="ph-paper-plane-tilt ms-2"></i></button>
+                                                    </div>
+                                                <?php } ?>
                                             </form>
                                         </div>
 
-                                      
+
                                     </div>
                                 </div>
                             </div>
@@ -170,13 +181,6 @@ include('../../includes/admin/head-dashboard.php')
 
     </div>
     <!-- /page content -->
-
-
-
-
-
-
-
 </body>
 
 </html>

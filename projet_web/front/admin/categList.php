@@ -98,10 +98,10 @@ include('../../includes/admin/head-dashboard.php')
                                             <td><?php echo $data['description']; ?></td>
                                             <td>
                                             <div class="d-inline-flex">
-						                		<a href="#" class="text-primary " data-bs-popup="tooltip" aria-label="Edit" data-bs-original-title="Edit">
+						                		<a href="./categEdit.php?id=<?= $data['id'] ?>" class="text-primary " data-bs-popup="tooltip" aria-label="Edit" data-bs-original-title="Edit">
 													<i class="ph-pen"></i>
 					                			</a>
-						                		<a href="#" class="text-danger mx-2" data-bs-popup="tooltip" aria-label="Remove" data-bs-original-title="Remove">
+						                		<a href="../../controllers/admin/deleteCateg.php?id=<?= $data['id'] ?>" class="text-danger mx-2" name="btn_del" data-bs-popup="tooltip" aria-label="Remove" data-bs-original-title="Remove">
 													<i class="ph-trash"></i>
 					                			</a>
 						                	</div>
