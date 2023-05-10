@@ -1,12 +1,7 @@
 <?php
-include('../utils/validate_email.php');
-$email = "yassine.beno@outlook.fr";
+require_once '../utils/validate_email.php';
+$email = "fruine6@gmail.com";
 var_dump(validateEmail($email));
-if (validateEmail($email)) {
-    echo "Valid email";
-   
-} else {
-    echo "Invalid email";
-}
+
 
 ?>

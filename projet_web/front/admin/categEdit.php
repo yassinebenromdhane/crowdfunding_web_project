@@ -84,7 +84,7 @@ $req = $bdd->query("SELECT * FROM categories where id=$id");
 
                                     <div class="tab-content flex-lg-fill">
                                         <div class="tab-pane fade active show" id="vertical-left-tab1" role="tabpanel">
-                                            <form action="../../controllers//admin/editCateg.php?id=<?= $id ?>" method="POST" data-select2-id="45">
+                                            <form action="../../controllers/admin/editCateg.php?id=<?= $id ?>" method="POST" data-select2-id="45">
                                                 <?php while ($data = $req->fetch()) { ?>
                                                     <div class="row mb-3">
                                                         <label class="col-lg-3 col-form-label">Name:</label>
@@ -118,7 +118,7 @@ $req = $bdd->query("SELECT * FROM categories where id=$id");
                                                         </div>
                                                     </div>
                                                     <div class="text-end">
-                                                        <button type="submit" name="btn" class="btn btn-success">Save <i class="ph-paper-plane-tilt ms-2"></i></button>
+                                                        <button name="btn" src="../../controllers/admin/editCateg.php?id=<?= $id ?>" class="btn btn-success">Edit <i class="ph-pencil-simple ms-2"></i></button>
                                                     </div>
                                                 <?php } ?>
                                             </form>

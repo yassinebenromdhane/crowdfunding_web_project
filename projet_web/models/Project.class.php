@@ -1,5 +1,5 @@
 <?php
-class User
+class Project
 {
 
   private $title;
@@ -13,7 +13,6 @@ class User
   private $cat_id;
   private $owner_id;
   
-
 
   function __construct($title, $desc, $object_plafon, $objectif, $status, $begin_date,$end_date,$validated,$cat_id,$owner_id)
   {
@@ -29,16 +28,24 @@ class User
     $this->owner_id = $owner_id;
   }
 
+  public function get_last_inserted_id($id){
+      return $id;
+  }
+
   public function ajouter()
   {
 
     $path=$_SERVER["DOCUMENT_ROOT"]."/projet_web/config/connect_db.php";
     include($path);
-    $req = $bdd->exec ("INSERT INTO `projects`(`title`, `description`, `objectif_plafon`, `objectif`, 
+    $req = $bdd->exec("INSERT INTO `projects`(`title`, `description`, `objectif_plafon`, `objectif`, 
     `status`, `begin_date`, `end_date`, `validated`, `cat_id`, `owner_id`) VALUES 
     ('$this->title','$this->desc','$this->object_plafon','$this->objectif','$this->status','$this->begin_date',
     '$this->end_date','$this->validated','$this->cat_id','$this->owner_id')");
+     $last_id = $bdd->lastInsertId();
+     $this->get_last_inserted_id($last_id);
+    
   }
+
 
   public function modifier()
   {

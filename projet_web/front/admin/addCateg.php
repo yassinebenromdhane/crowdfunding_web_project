@@ -70,7 +70,7 @@ include('../../includes/admin/head-dashboard.php')
                                         <li class="nav-item" role="presentation">
                                             <a href="#vertical-left-tab1" class="nav-link active" data-bs-toggle="tab" aria-selected="true" role="tab">
                                                 <i class="ph-user-circle me-2"></i>
-                                                Active
+                                                Categorie
                                             </a>
                                         </li>
                                        

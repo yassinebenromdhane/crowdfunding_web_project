@@ -27,7 +27,7 @@ class Category
         //return TRUE
     }
 
-    public function modifier()
+    public function modifier($id)
     {
 
 
@@ -35,7 +35,6 @@ class Category
         include($path);
 
         //$id = isset($_GET['id_admin']) ? $_GET['id_admin'] : '';
-        $id = $_GET['id'];
 
         $r = $bdd->exec("UPDATE `categories` SET `name`='$this->name',`description`='$this->desc' ,`actif`='$this->actif'  WHERE id=$id");
 
